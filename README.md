@@ -51,29 +51,39 @@ We have used here bandit policy. It terminates runs where the primary metric is 
 Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. Automated ML in Azure Machine Learning is based on a breakthrough from our Microsoft Research division.
 [Source: https://docs.microsoft.com/en-us/azure/machine-learning/concept-automated-ml]
 
-We found VotingEnsemble as the best model with accuracy '0.9152655538694994'.
+We found Voting Ensemble as the best model with accuracy '0.9152655538694994'.
 
 A voting ensemble works by combining the predictions from multiple models. It can be used for classification or regression. In the case of regression, this involves calculating the average of the predictions from the models. In the case of classification, the predictions for each label are summed and the label with the majority vote is predicted.
 
 [Source: https://machinelearningmastery.com/voting-ensembles-with-python/]
 
-Algorithm	Weights	learning_rate	n_estimators
-xgboostclassifier, maxabsscaler	0.307692308	0.1	100
-lightgbmclassifier, maxabsscaler	0.384615385	0.1	100
-randomforestclassifier, minmaxscaler	0.076923077		10
-randomforestclassifier, minmaxscaler	0.076923077		10
-randomforestclassifier, minmaxscaler	0.153846154		25
+The below algorithms have been run by the fitted model i.e. voting ensemble. Few of the hyperparameters are listed here. 
+
+
+| 				Algorithm			 | 	Weights	  |	learning_rate |	n_estimators |
+|------------------------------------|----------------|---------------|--------------|
+| xgboostclassifier, maxabsscaler	 | 0.307692308	  | 0.1			  |		100      |
+|lightgbmclassifier, maxabsscaler	 | 0.384615385	  | 0.1			  | 	100      |
+|randomforestclassifier, minmaxscaler|	0.076923077	  |	           |  10			 |
+|randomforestclassifier, minmaxscaler|	0.076923077	  |	            |	10		 |
+|randomforestclassifier, minmaxscaler|	0.153846154	  |	 			  |  	25		 |
 
 
 ## Pipeline comparison
+
+Steps followed in AutoML are:
+
+1. FeaturesGeneration: Generating features for the dataset.
+2. DatasetCrossValidationSplit: Generating individually featurized CV splits.
+3. ModelSelection: Beginning model selection.
 
 Accuracy of HyperDrive model: 0.912797167425392
 
 Accuracy of AutoML: '0.9152655538694994'
 
-It is obvious that AutoML has achieved a bit higher accuracy than that of Logistic Regression using HyperDrive. 
+It is obvious that AutoML has achieved a bit higher accuracy with Voting Ensemble than that of Logistic Regression using HyperDrive. 
 
-In experiment with HyperDrive, it is defined to work with Logistic Regression whereas AutoML facilitates to work on wide variety of algorithms. AutoML gives best result in case of model selection, thus, providing better accuracy. 
+In experiment with HyperDrive, it is defined to work with Logistic Regression whereas AutoML facilitates to work on wide variety of algorithms. AutoML gives the best result in model selection, thus, providing better accuracy. 
 
 ## Future work
 1. We would like to use other primary metrics because accuracy sometimes does not help derive model performance. 
