@@ -57,6 +57,13 @@ A voting ensemble works by combining the predictions from multiple models. It ca
 
 [Source: https://machinelearningmastery.com/voting-ensembles-with-python/]
 
+Algorithm	Weights	learning_rate	n_estimators
+xgboostclassifier, maxabsscaler	0.307692308	0.1	100
+lightgbmclassifier, maxabsscaler	0.384615385	0.1	100
+randomforestclassifier, minmaxscaler	0.076923077		10
+randomforestclassifier, minmaxscaler	0.076923077		10
+randomforestclassifier, minmaxscaler	0.153846154		25
+
 
 ## Pipeline comparison
 
