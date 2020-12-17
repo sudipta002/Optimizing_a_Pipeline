@@ -6,7 +6,7 @@ In this project, we build and optimize an Azure ML pipeline using the Python SDK
 This model is then compared to an Azure AutoML run.
 
 ## Summary
-**In 1-2 sentences, explain the problem statement: e.g "This dataset contains data about... we seek to predict..."**
+
 The data contains different attribute of banking clients. The classification goal is to predict if the client will subscribe a term deposit (variable y).
 
 Data
@@ -14,10 +14,6 @@ Shape: 32,950 (row) x 20 (column)
 
 The data is available at below link. 
 (https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv)
-
-**In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
-
-Best Performing model was Logistic Regression. Dependent variable Y('Yes' , 'No') was converted to 1 and 0 to fit the model.
 
 ## Scikit-learn Pipeline
 **Explain the pipeline architecture, including data, hyperparameter tuning, and classification algorithm.**
@@ -33,7 +29,8 @@ Pipeline consists of the following:
 
 Data sets we have devided into train(80% of the given data) and test datasets (20% of the given data).
 Hyper Parameter used is : C: is the inverse of the regularization term (1/lambda). It tells the model how much large parameters are penalized, smaller values result in larger penalization.
-Algorith used is Logistic Regression.
+
+We have used Logistic Regression with HyperDrive for hyperparameters tuning. 
 
 **What are the benefits of the parameter sampler you chose?**
 We can think of regularization as adding (or increasing the) bias if our model suffers from (high) variance (i.e., it overfits the training data). On the other hand, too much bias will result in underfitting (a characteristic indicator of high bias is that the model shows a "bad" performance for both the training and test dataset). We have added here C: the inverse of the regularization term (1/lambda). C value is chosen from (1,2,3,4). 
@@ -55,18 +52,16 @@ A voting ensemble works by combining the predictions from multiple models. It ca
 
 
 ## Pipeline comparison
-**Compare the two models and their performance. What are the differences in accuracy? In architecture? If there was a difference, why do you think there was one?**
 
 Accuracy of HyperDrive model: 0.912797167425392
+
 Accuracy of AutoML: '0.9152655538694994'
 
-It is obvious that AutoML has achieved a bit higher accuracy than that of HyperDrive model. 
+It is obvious that AutoML has achieved a bit higher accuracy than that of Logistic Regression using HyperDrive. 
 
 In experiment with HyperDrive, it is defined to work with Logistic Regression whereas AutoML facilitates to work on wide variety of algorithms. AutoML gives best result in case of model selection, thus, providing better accuracy. 
 
 ## Future work
-**What are some areas of improvement for future experiments? Why might these improvements help the model?**
+1. We would like to use other primary metric.
+2. If we could have more experiment time, AutoML will have more number of algorithms to work on. 
 
-## Proof of cluster clean up
-**If you did not delete your compute cluster in the code, please complete this section. Otherwise, delete this section.**
-**Image of cluster marked for deletion**
