@@ -7,17 +7,30 @@ This model is then compared to an Azure AutoML run.
 
 ## Summary
 **In 1-2 sentences, explain the problem statement: e.g "This dataset contains data about... we seek to predict..."**
-The data contains different attribute of banking clients. We seek to predict if the client will subscribe to the product or not. (Variable Y)
+The data contains different attribute of banking clients. The classification goal is to predict if the client will subscribe a term deposit (variable y).
+
+Dataset
+Shape: 32,950 (row) x 20 (column)
 
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
 
-Best Performing model was LogisticRegression. Dependent variable Y('Yes' , 'No') was converted to 1 and 0 to fit the model
+Best Performing model was Logistic Regression. Dependent variable Y('Yes' , 'No') was converted to 1 and 0 to fit the model.
 
 ## Scikit-learn Pipeline
 **Explain the pipeline architecture, including data, hyperparameter tuning, and classification algorithm.**
-Data sets we have devided in to train(to build the model) and test data(to check the accuracy).
+
+Pipeline consists of the following:
+1. Data collection
+2. Data Cleaning
+3. Data splitting for train and test sets
+4. Hyper parameter sampling
+5. Model training
+6. Model testing
+7. Saving and registering best model into workspace 
+
+Data sets we have devided into train(80% of the given data) and test datasets (20% of the given data).
 Hyper Parameter used is : C: is the inverse of the regularization term (1/lambda). It tells the model how much large parameters are penalized, smaller values result in larger penalization.
-Algorith used is LogisticRegression.
+Algorith used is Logistic Regression.
 
 **What are the benefits of the parameter sampler you chose?**
 we can think of regularization as adding (or increasing the) bias if our model suffers from (high) variance (i.e., it overfits the training data). On the other hand, too much bias will result in underfitting (a characteristic indicator of high bias is that the model shows a "bad" performance for both the training and test dataset). We have added here C: the inverse of the regularization term (1/lambda). Values are chosen in between (0.05, 1.0)
