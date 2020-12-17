@@ -69,6 +69,9 @@ It is obvious that AutoML has achieved a bit higher accuracy than that of Logist
 In experiment with HyperDrive, it is defined to work with Logistic Regression whereas AutoML facilitates to work on wide variety of algorithms. AutoML gives best result in case of model selection, thus, providing better accuracy. 
 
 ## Future work
-1. We would like to use other primary metrics.
-2. We would like to have more experiment time for AutoML so that it can run more algorithms.
-
+1. We would like to use other primary metrics because accuracy sometimes does not help derive model performance. 
+2. We would like to have more experiment time for AutoML so that it can run more algorithms. This will help us find out the accurate model.
+3. In experiment with HyperDrive, we could use Bayesian sampling in place of Random sampling for Hyperparameter selection. Bayesian sampling is based on the Bayesian optimization algorithm. It picks samples based on how previous samples performed, so that new samples improve the primary metric.
+4. We could use warm start which enables to reuse knowledge of previous runs accelerating hyperparameter tuning in HyperDrive experiment.
+[Source: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters]
+5. We need to work on imbalanced data which can lead to a falsely perceived positive effect of a model's accuracy because the input data has bias towards one class.
