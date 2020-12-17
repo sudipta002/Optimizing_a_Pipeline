@@ -44,7 +44,8 @@ def clean_data(data):
 
     y_df = x_df.pop("y").apply(lambda s: 1 if s == "yes" else 0)
 
-    return x_df, y_df # added this statement by myself
+    # Returning both dataframes
+    return x_df, y_df 
 
 x, y = clean_data(dataset)
 
